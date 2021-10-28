@@ -11,12 +11,19 @@ import "WarUnit.sol";
 // This is class that describes you smart contract.
 contract Warrior is WarUnit {
 
-    function setHealth(uint val) public override {
-        health = val;
+    constructor(uint _health, uint _power) public {
+             health = _health;
+             selfPower = _power;
+    }
+        
     }
 
-    function setPower(uint val) public override {
-        selfPower = val;
+   // function setHealth(uint val) public override {
+     //   health = val;
+ //   }
 
-    }
-}
+  //  function setPower(uint val) public override {
+     //   selfPower = val;
+
+   // }
+
