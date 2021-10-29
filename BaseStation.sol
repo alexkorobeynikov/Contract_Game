@@ -11,16 +11,34 @@ import "GameObject.sol";
 // This is class that describes you smart contract.
 contract BaseStation is GameObject {
 
-    constructor(uint _health) public {
+    uint public station;
+
+    constructor(int _health) public {
         health = _health;
         
     }
+
+    struct Unit {
+        uint health;
+        uint power;
+        address unitAddress;    
+    }
+
+    Unit[] units;
+
+    function addUnit(uint health, uint power ) virtual external {
+        address unitAddress = msg.sender;
+        units.push(Unit(health, power, unitAddress));
+
+    }
+
+
 
    //  function setHealth(val) public override {
        // health = val;
    // }
     
-    mapping (uint=>address) unit;
+   
     
 
 

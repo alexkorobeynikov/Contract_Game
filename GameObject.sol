@@ -11,23 +11,25 @@ import 'GameInterface.sol';
 // This is class that describes you smart contract.
 contract GameObject is GameInterface {
 
-    uint public health;
+    int public health;
     address public callerAddress;
     bool public isDied;
 
     
 
-    function setHealth(uint val) virtual public  {
+    function setHealth(int val) virtual public  {
         tvm.accept();
         health = val;
         
     }
 
-    function takeAttack(uint power) virtual external override {
+
+     function takeAttack(int power) virtual external override {
         tvm.accept();
         callerAddress = msg.sender;
         if (health > power) {
             health = health - power;
+            isDied = false;
         }
         else {
             isDied = true;
@@ -36,5 +38,7 @@ contract GameObject is GameInterface {
         }
 
     }
+
+  
     
 }

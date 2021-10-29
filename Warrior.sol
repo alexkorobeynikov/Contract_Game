@@ -11,7 +11,7 @@ import "WarUnit.sol";
 // This is class that describes you smart contract.
 contract Warrior is WarUnit {
 
-    constructor(uint _health, uint _power) public {
+    constructor(int _health, int _power) public {
              health = _health;
              selfPower = _power;
     }

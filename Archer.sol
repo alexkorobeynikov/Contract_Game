@@ -11,11 +11,11 @@ import "WarUnit.sol";
 // This is class that describes you smart contract.
 contract Archer is WarUnit {
 
-    function setHealth(uint val) public override {
+    function setHealth(int val) public override {
         health = val;
     }
 
-    function setPower(uint val) public override {
+    function setPower(int val) public override {
         selfPower = val;
 
     }

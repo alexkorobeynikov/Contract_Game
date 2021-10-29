@@ -9,14 +9,15 @@ pragma AbiHeader expire;
 import "GameObject.sol";
 
 contract WarUnit is GameObject {
+    
 
-    uint public selfPower;
+    int public selfPower;
 
-    function setHealth(uint val) public virtual override {
+    function setHealth(int val) public virtual override {
         health = val;
     }
 
-    function setPower(uint val ) public virtual {
+    function setPower(int val ) public virtual {
         tvm.accept();
         selfPower = val;
     }
