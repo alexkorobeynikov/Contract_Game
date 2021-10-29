@@ -1,0 +1,93 @@
+{
+	"ABI version": 2,
+	"version": "2.1",
+	"header": ["time", "expire"],
+	"functions": [
+		{
+			"name": "constructor",
+			"inputs": [
+				{"name":"_health","type":"int256"},
+				{"name":"_power","type":"int256"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "setHealth",
+			"inputs": [
+				{"name":"val","type":"int256"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "setPower",
+			"inputs": [
+				{"name":"val","type":"int256"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "attack",
+			"inputs": [
+				{"name":"myAddress","type":"address"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "takeAttack",
+			"inputs": [
+				{"name":"power","type":"int256"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "health",
+			"inputs": [
+			],
+			"outputs": [
+				{"name":"health","type":"int256"}
+			]
+		},
+		{
+			"name": "callerAddress",
+			"inputs": [
+			],
+			"outputs": [
+				{"name":"callerAddress","type":"address"}
+			]
+		},
+		{
+			"name": "isDied",
+			"inputs": [
+			],
+			"outputs": [
+				{"name":"isDied","type":"bool"}
+			]
+		},
+		{
+			"name": "selfPower",
+			"inputs": [
+			],
+			"outputs": [
+				{"name":"selfPower","type":"int256"}
+			]
+		}
+	],
+	"data": [
+	],
+	"events": [
+	],
+	"fields": [
+		{"name":"_pubkey","type":"uint256"},
+		{"name":"_timestamp","type":"uint64"},
+		{"name":"_constructorFlag","type":"bool"},
+		{"name":"health","type":"int256"},
+		{"name":"callerAddress","type":"address"},
+		{"name":"isDied","type":"bool"},
+		{"name":"selfPower","type":"int256"}
+	]
+}

@@ -14,6 +14,7 @@ contract Warrior is WarUnit {
     constructor(int _health, int _power) public {
              health = _health;
              selfPower = _power;
+             tvm.accept();
     }
         
     }

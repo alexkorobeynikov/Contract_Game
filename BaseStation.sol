@@ -15,6 +15,7 @@ contract BaseStation is GameObject {
 
     constructor(int _health) public {
         health = _health;
+        tvm.accept();
         
     }
 

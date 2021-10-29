@@ -1,0 +1,66 @@
+{
+	"ABI version": 2,
+	"version": "2.1",
+	"header": ["time", "expire"],
+	"functions": [
+		{
+			"name": "setHealth",
+			"inputs": [
+				{"name":"val","type":"int256"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "takeAttack",
+			"inputs": [
+				{"name":"power","type":"int256"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "constructor",
+			"inputs": [
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "health",
+			"inputs": [
+			],
+			"outputs": [
+				{"name":"health","type":"int256"}
+			]
+		},
+		{
+			"name": "callerAddress",
+			"inputs": [
+			],
+			"outputs": [
+				{"name":"callerAddress","type":"address"}
+			]
+		},
+		{
+			"name": "isDied",
+			"inputs": [
+			],
+			"outputs": [
+				{"name":"isDied","type":"bool"}
+			]
+		}
+	],
+	"data": [
+	],
+	"events": [
+	],
+	"fields": [
+		{"name":"_pubkey","type":"uint256"},
+		{"name":"_timestamp","type":"uint64"},
+		{"name":"_constructorFlag","type":"bool"},
+		{"name":"health","type":"int256"},
+		{"name":"callerAddress","type":"address"},
+		{"name":"isDied","type":"bool"}
+	]
+}
