@@ -19,19 +19,39 @@ contract BaseStation is GameObject {
         
     }
 
-    struct Unit {
-        uint health;
-        uint power;
-        address unitAddress;    
+    address[] unitAddres;
+
+    mapping (address=>uint) mapOfUnit;
+
+    function addUnit(address val) virtual external  {
+        val = msg.sender;
+        unitAddres.push(val);
+        uint id = unitAddres.length - 1;
+        mapOfUnit[val] = id;
+
+
     }
 
-    Unit[] units;
-
-    function addUnit(uint health, uint power ) virtual external {
-        address unitAddress = msg.sender;
-        units.push(Unit(health, power, unitAddress));
-
+    function delUnit(address val) public {
+        delete mapOfUnit[val];
     }
+
+    
+
+    function takeAttack(int power) virtual external override {
+        tvm.accept();
+        callerAddress = msg.sender;
+        if (health > power) {
+            health = health - power;
+            isDied = false;
+        }
+        else {
+            isDied = true;
+            callerAddress.transfer(1, true, 160);
+            
+        }
+    }
+
 
 
 

@@ -9,22 +9,15 @@ pragma AbiHeader expire;
 import "WarUnit.sol";
 
 // This is class that describes you smart contract.
-contract Warrior is WarUnit {
+ contract Warrior is WarUnit {
 
-    constructor(int _health, int _power) public {
-             health = _health;
-             selfPower = _power;
-             tvm.accept();
+    function setHealth(int val) public override   {
+       health = val;
+ }
+
+   function setPower(int val) public override  {
+        selfPower = val;
+
     }
-        
-    }
-
-   // function setHealth(uint val) public override {
-     //   health = val;
- //   }
-
-  //  function setPower(uint val) public override {
-     //   selfPower = val;
-
-   // }
+}
 

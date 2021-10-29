@@ -9,7 +9,7 @@ pragma AbiHeader expire;
 import 'GameInterface.sol';
 
 // This is class that describes you smart contract.
-contract GameObject is GameInterface {
+ contract GameObject is GameInterface {
 
     int public health;
     address public callerAddress;

@@ -7,8 +7,20 @@ pragma ton-solidity >= 0.35.0;
 pragma AbiHeader expire;
 
 import "GameObject.sol";
+import "BaseStation.sol";
 
 contract WarUnit is GameObject {
+
+    address base_address;
+    BaseStation base;
+
+    
+    constructor(BaseStation) public {
+        base.addUnit(msg.sender);
+       base_address = base;
+ tvm.accept();
+        
+    }
     
 
     int public selfPower;
@@ -22,10 +34,27 @@ contract WarUnit is GameObject {
         selfPower = val;
     }
 
-
     function attack(GameInterface myAddress ) public {
         tvm.accept();
         myAddress.takeAttack(selfPower);
     }
+
+    function takeAttack(int power) virtual external override {
+        tvm.accept();
+        callerAddress = msg.sender;
+        if (health > power) {
+            health = health - power;
+            isDied = false;
+        }
+        else {
+            isDied = true;
+            base.delUnit(msg.sender);
+            callerAddress.transfer(1, true, 160);
+            
+        }
+    }
+
+
+   
 
 }
