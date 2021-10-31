@@ -15,7 +15,7 @@ contract WarUnit is GameObject {
     int public selfPower;
     BaseStation base;
     
-   constructor() public override {
+   constructor() public  {
         base.addUnit(msg.sender);
      tvm.accept();   
   }
