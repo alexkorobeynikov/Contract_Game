@@ -9,25 +9,21 @@ pragma AbiHeader expire;
 import "GameObject.sol";
 import "BaseStation.sol";
 
+
 contract WarUnit is GameObject {
 
-    address base_address;
-    BaseStation base;
-
-    
-    constructor(BaseStation) public {
-        base.addUnit(msg.sender);
-       base_address = base;
- tvm.accept();
-        
-    }
-    
-
     int public selfPower;
+    BaseStation base;
+    
+   constructor() public override {
+        base.addUnit(msg.sender);
+     tvm.accept();   
+  }
 
+    
     function setHealth(int val) public virtual override {
-        health = val;
-    }
+    health = val;
+  }
 
     function setPower(int val ) public virtual {
         tvm.accept();
@@ -39,6 +35,7 @@ contract WarUnit is GameObject {
         myAddress.takeAttack(selfPower);
     }
 
+   
     function takeAttack(int power) virtual external override {
         tvm.accept();
         callerAddress = msg.sender;
@@ -48,13 +45,11 @@ contract WarUnit is GameObject {
         }
         else {
             isDied = true;
-            base.delUnit(msg.sender);
+           base.delUnit(msg.sender);
             callerAddress.transfer(1, true, 160);
             
         }
     }
 
-
-   
 
 }

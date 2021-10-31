@@ -8,10 +8,10 @@ pragma AbiHeader expire;
 
 import "GameObject.sol";
 
-// This is class that describes you smart contract.
-contract BaseStation is GameObject {
 
-    uint public station;
+// This is class that describes you smart contract.
+contract BaseStation is GameObject  {
+
 
     constructor(int _health) public {
         health = _health;
@@ -23,7 +23,8 @@ contract BaseStation is GameObject {
 
     mapping (address=>uint) mapOfUnit;
 
-    function addUnit(address val) virtual external  {
+    function addUnit(address val) public     {
+        tvm.accept();
         val = msg.sender;
         unitAddres.push(val);
         uint id = unitAddres.length - 1;
@@ -33,10 +34,12 @@ contract BaseStation is GameObject {
     }
 
     function delUnit(address val) public {
+        tvm.accept();
+        val = msg.sender;
         delete mapOfUnit[val];
+        
     }
 
-    
 
     function takeAttack(int power) virtual external override {
         tvm.accept();
@@ -48,19 +51,9 @@ contract BaseStation is GameObject {
         else {
             isDied = true;
             callerAddress.transfer(1, true, 160);
-            
+        
         }
     }
-
-
-
-
-   //  function setHealth(val) public override {
-       // health = val;
-   // }
-    
-   
-    
 
 
 }

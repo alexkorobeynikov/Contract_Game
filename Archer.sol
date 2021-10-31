@@ -11,7 +11,7 @@ import "WarUnit.sol";
 // This is class that describes you smart contract.
 contract Archer is WarUnit {
 
-   constructor(int _health, int _power) public override {
+   constructor(int _health, int _power) public   {
              health = _health;
              selfPower = _power;
              tvm.accept();
